@@ -1,13 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Product } from '../../../models/product';
 import { ProductService } from '../../../services/product.service';
 import { StorageService } from '../../../services/storage.service';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-product-management',
   templateUrl: './product-management.component.html',
-  styleUrls: ['./product-management.component.scss']
+  styleUrls: ['./product-management.component.scss'],
+  imports: [CommonModule, FormsModule],
+  standalone: true
 })
 export class ProductManagementComponent implements OnInit {
   @ViewChild('form') productForm!: NgForm;

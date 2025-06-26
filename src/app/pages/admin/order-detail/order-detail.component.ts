@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Order } from '../../../models/order';
 import { Product } from '../../../models/product';
@@ -9,7 +10,9 @@ import { EmailService } from '../../../services/email.service';
 @Component({
   selector: 'app-order-detail',
   templateUrl: './order-detail.component.html',
-  styleUrls: ['./order-detail.component.scss']
+  styleUrls: ['./order-detail.component.scss'],
+  imports: [CommonModule],
+  standalone: true
 })
 export class OrderDetailComponent implements OnInit {
   order: Order | undefined;

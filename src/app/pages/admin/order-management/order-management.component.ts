@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { Order } from '../../../models/order';
 import { Product } from '../../../models/product';
@@ -10,7 +11,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-order-management',
   templateUrl: './order-management.component.html',
-  styleUrls: ['./order-management.component.scss']
+  styleUrls: ['./order-management.component.scss'],
+  imports: [CommonModule],
+  standalone: true
 })
 export class OrderManagementComponent implements OnInit {
   orders$!: Observable<Order[]>;

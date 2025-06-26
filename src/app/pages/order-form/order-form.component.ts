@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule, DecimalPipe } from '@angular/common';
 import { Product } from '../../models/product';
 import { Order, OrderProduct } from '../../models/order';
 import { ProductService } from '../../services/product.service';
@@ -9,7 +11,9 @@ import { take } from 'rxjs/operators';
 @Component({
   selector: 'app-order-form',
   templateUrl: './order-form.component.html',
-  styleUrls: ['./order-form.component.scss']
+  styleUrls: ['./order-form.component.scss'],
+  imports: [FormsModule, CommonModule, DecimalPipe],
+  standalone: true
 })
 export class OrderFormComponent implements OnInit {
   products: Product[] = [];
