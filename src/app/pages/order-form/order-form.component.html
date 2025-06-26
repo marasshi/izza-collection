@@ -1,0 +1,77 @@
+<div class="order-form-container">
+  <div class="order-success" *ngIf="orderSubmitted">
+    <div class="success-box">
+      <svg class="success-icon" viewBox="0 0 24 24">
+        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+      </svg>
+      <h2>Order Submitted Successfully!</h2>
+      <p>Thank you for your order. You will be redirected to the home page shortly.</p>
+    </div>
+  </div>
+
+  <div class="order-form" *ngIf="!orderSubmitted">
+    <h2>Place Your Order</h2>
+    
+    <!-- Customer Information -->
+    <div class="customer-info-section">
+      <h3>Customer Information</h3>
+      <div class="form-group">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" [(ngModel)]="customerInfo.name" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" [(ngModel)]="customerInfo.email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" [(ngModel)]="customerInfo.phone" name="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Full Address:</label>
+        <textarea id="address" [(ngModel)]="customerInfo.address" name="address" rows="4" required></textarea>
+      </div>
+    </div>
+
+    <!-- Order Summary -->
+    <div class="order-summary-section" *ngIf="selectedProducts.length > 0">
+      <h3>Order Summary</h3>
+      <div class="order-items">
+        <div class="order-item" *ngFor="let item of selectedProducts">
+          <div class="item-info">
+            <img [src]="getProductById(item.productId)?.imageUrl" [alt]="getProductById(item.productId)?.name" class="item-image">
+            <div class="item-details">
+              <h4>{{ getProductById(item.productId)?.name }}</h4>
+              <p class="item-price">€{{ getProductById(item.productId)?.price }}</p>
+            </div>
+          </div>
+          
+          <div class="item-controls">
+            <div class="size-control">
+              <label>Size:</label>
+              <select (change)="onSizeChange(item.productId, $event)" [value]="item.size">
+                <option *ngFor="let size of getProductById(item.productId)?.sizes" [value]="size">{{ size }}</option>
+              </select>
+            </div>
+            
+            <div class="quantity-control">
+              <label>Qty:</label>
+              <input type="number" [value]="item.quantity" (change)="onQuantityChange(item.productId, $event)" min="1" max="10">
+            </div>
+            
+            <button (click)="removeProductFromOrder(item.productId)" class="remove-btn">Remove</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="order-total">
+        <h4>Total: €{{ calculateTotal() | number:'1.2-2' }}</h4>
+      </div>
+      
+      <button (click)="submitOrder()" class="submit-btn">Submit Order</button>
+    </div>
+  </div>
+</div>

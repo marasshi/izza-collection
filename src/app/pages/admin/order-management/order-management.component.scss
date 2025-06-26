@@ -1,0 +1,128 @@
+.order-management-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-dark);
+}
+
+.orders-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.order-card {
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+
+  h3 {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+.order-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+
+  &.pending {
+    background-color: #fff0c2;
+    color: #8c6d00;
+  }
+  &.processed {
+    background-color: #cce5ff;
+    color: #004085;
+  }
+  &.completed {
+    background-color: #d4edda;
+    color: #155724;
+  }
+}
+
+.order-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+
+  h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+  }
+
+  ul {
+    padding-left: 1.2rem;
+    margin: 0;
+    list-style-type: square;
+  }
+}
+
+.order-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #f0f0f0;
+  border-radius: 0 0 8px 8px;
+  font-size: 0.9rem;
+}
+
+.order-total {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.btn-view {
+  background: var(--gold-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(189,160,109,0.07);
+  transition: background 0.2s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  letter-spacing: 0.5px;
+}
+
+.btn-view:hover {
+  background: #a98d5b;
+  transform: translateY(-2px) scale(1.04);
+}
+
+.icon-eye {
+  font-size: 1.1em;
+  vertical-align: middle;
+}

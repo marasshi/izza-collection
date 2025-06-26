@@ -1,0 +1,96 @@
+$gold-color: #bda55d;
+$text-light: #f8f9fa;
+$background-dark: #222;
+
+.footer {
+  background-color: $background-dark;
+  color: $text-light;
+  padding: 3rem 0;
+  margin-top: 5rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.footer-logo h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: $gold-color;
+}
+
+.footer-links {
+  margin-bottom: 1.5rem;
+
+  a {
+    color: $text-light;
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $gold-color;
+    }
+  }
+}
+
+.footer-copyright p {
+  margin: 0;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.4rem;
+  justify-content: center;
+  align-items: center;
+  margin: 1.2rem 0 0 0;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  transition: none;
+}
+
+.footer-social img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  display: block;
+  filter: none;
+  background: none;
+  border-radius: 0;
+  transition: none;
+}
+
+.footer-social a:hover,
+.footer-social a:hover img {
+  background: transparent;
+  filter: none;
+  box-shadow: none;
+}
+
+.footer-social img[alt='TikTok'] {
+  background: #fff;
+  border-radius: 50%;
+  object-fit: cover;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  display: block;
+}

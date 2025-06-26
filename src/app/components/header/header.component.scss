@@ -1,0 +1,125 @@
+$gold-color: #bda55d;
+$text-dark: #222;
+
+.header {
+  background: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  text-decoration: none;
+  display: block;
+
+  img {
+    max-height: 70px;
+    width: auto;
+    display: block;
+    margin: 0 0.5rem;
+  }
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: $text-dark;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: $gold-color;
+  border-bottom-color: $gold-color;
+}
+
+.admin-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.admin-btn {
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 10px 15px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: white;
+  min-width: 200px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  z-index: 1;
+
+  .nav-link {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    
+    &:hover {
+      background-color: #f1f1f1;
+    }
+  }
+}
+
+.logout-link {
+  cursor: pointer;
+}
+
+.admin-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .dropdown-content {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .header {
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  }
+  .header--hidden {
+    transform: translateY(-100%);
+  }
+}

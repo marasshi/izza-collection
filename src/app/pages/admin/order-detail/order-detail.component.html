@@ -1,0 +1,40 @@
+<div class="order-detail-container" *ngIf="order">
+  <h1 class="page-title">Order Details</h1>
+  <div class="order-detail-card">
+    <div class="order-header">
+      <h3>Order #{{ order.id | slice:0:7 }}</h3>
+      <div class="order-status" [ngClass]="order.status">{{ order.status }}</div>
+    </div>
+    <div class="order-body">
+      <div class="customer-details">
+        <h4>Customer Details</h4>
+        <p><strong>Name:</strong> {{ order.customerName }}</p>
+        <p><strong>Email:</strong> {{ order.customerEmail }}</p>
+        <p><strong>Phone:</strong> {{ order.customerPhone }}</p>
+        <p><strong>Address:</strong> {{ order.address }}</p>
+      </div>
+      <div class="product-details">
+        <h4>Products</h4>
+        <ul>
+          <li *ngFor="let item of order.products">
+            {{ getProductById(item.productId)?.name }} - Size: {{ item.size }}, Qty: {{ item.quantity }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="order-footer">
+      <div class="order-total">
+        Total: €{{ order.total | number:'1.2-2' }}
+      </div>
+      <div class="order-date">
+        Placed on: {{ order.createdAt | date:'medium' }}
+      </div>
+    </div>
+    <button *ngIf="order.status === 'pending'" class="btn-accept" (click)="acceptOrder()" [disabled]="accepted">
+      <span class="icon-check">✔</span> Accept Order
+    </button>
+    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+    <button class="btn-delete" (click)="deleteOrder()">Delete Order</button>
+    <button class="btn-back" (click)="goBack()">Back to Orders</button>
+  </div>
+</div>

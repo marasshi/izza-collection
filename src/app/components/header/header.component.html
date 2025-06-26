@@ -1,0 +1,22 @@
+<header class="header">
+  <div class="header-container">
+    <a routerLink="/" class="logo">
+      <img src="../../../assets/images/logo.png" alt="Izza Collection Logo">
+    </a>
+    
+    <nav class="nav-menu">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a>
+      <a routerLink="/products" routerLinkActive="active" class="nav-link">Products</a>
+      
+      <!-- Show Admin dropdown if logged in -->
+      <div *ngIf="isLoggedIn$ | async" class="admin-dropdown">
+        <button class="admin-btn">Admin</button>
+        <div class="dropdown-content">
+          <a routerLink="/admin/products" routerLinkActive="active" class="nav-link">Manage Products</a>
+          <a routerLink="/admin/orders" routerLinkActive="active" class="nav-link">View Orders</a>
+          <a (click)="logout()" class="nav-link logout-link">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,78 @@
+<div class="product-management">
+  <div class="product-form-card">
+    <h2 class="form-title">{{ isEditing ? 'Edit Product' : 'Add New Product' }}</h2>
+    <form #form="ngForm" (ngSubmit)="onSubmit()" class="product-form">
+      <input type="hidden" name="id" [(ngModel)]="formData.id">
+      <input type="hidden" name="imageUrl" [(ngModel)]="formData.imageUrl">
+
+      <div class="form-group">
+        <label for="name">Product Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="formData.name" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" [(ngModel)]="formData.description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" [(ngModel)]="formData.price" step="0.01" required>
+      </div>
+      <div class="form-group">
+        <label for="imageUrl">Image URL</label>
+        <input type="text" id="imageUrl" name="imageUrl" [(ngModel)]="formData.imageUrl" placeholder="https://...">
+      </div>
+      <div class="form-group">
+        <label for="imageFile">Product Image (Upload)</label>
+        <img *ngIf="isEditing && (formData.imageUrl || selectedFilePreview)" [src]="selectedFilePreview || formData.imageUrl" alt="Current product image" class="image-preview">
+        <input type="file" id="imageFile" (change)="onFileSelected($event)" accept="image/*" #fileInput>
+      </div>
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" [(ngModel)]="formData.category" required>
+      </div>
+      <div class="form-group">
+        <label for="sizes">Sizes (comma-separated):</label>
+        <input type="text" id="sizes" name="sizes" [(ngModel)]="formData.sizes">
+      </div>
+      <div class="form-group checkbox-group">
+        <label>
+          <input type="checkbox" name="inStock" [(ngModel)]="formData.inStock">
+          In Stock
+        </label>
+      </div>
+      <div class="form-actions">
+        <button type="submit" [disabled]="form.invalid" class="btn-gold">{{ isEditing ? 'Update' : 'Add' }} Product</button>
+        <button type="button" (click)="resetForm()" class="btn-secondary">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="products-table-card">
+    <h3 class="table-title">Existing Products</h3>
+    <table class="products-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>In Stock</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td><img [src]="product.imageUrl" [alt]="product.name" class="product-thumbnail"></td>
+          <td>{{ product.name }}</td>
+          <td>€{{ product.price }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.inStock ? 'Yes' : 'No' }}</td>
+          <td>
+            <button (click)="editProduct(product)" class="btn-gold btn-sm"><span class="icon-pencil">✏️</span> Edit</button>
+            <button (click)="deleteProduct(product.id)" class="btn-delete btn-sm"><span class="icon-trash">🗑️</span> Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

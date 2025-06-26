@@ -1,0 +1,67 @@
+<!-- New Hero Section -->
+<section class="new-hero container">
+  <div class="hero-top-brand">I Z Z A</div>
+  <div class="hero-main-content">
+    <div class="hero-side-brand">
+      <p>IZZA</p>
+      <p>COLLECTION</p>
+    </div>
+    <div class="hero-image-container">
+      <div class="hero-image-wrapper">
+        <div class="hero-image-overlay"></div>
+      <img src="assets/images/hero-main.jpg" alt="Izza Collection Model">
+      </div>
+    </div>
+    <div class="hero-tagline">
+      <p class="highlight">Zgjidh stilin që flet për ty.</p>
+      <p>Sepse kur ti vesh Izza collection, nuk ndjek trendet – ti i krijon ato.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Collections Section -->
+<section class="featured-collections container">
+  <h2 class="section-title">Featured Collections</h2>
+  <div class="collections-grid">
+    <div class="collection-card">
+      <img src="assets/images/collection1.jpg" alt="Featured Collection 1">
+      <div class="collection-info">
+        <a class="explore-btn" routerLink="/products">Explore</a>
+      </div>
+    </div>
+  <div class="collection-card">
+      <img src="assets/images/collection2.jpg" alt="Featured Collection 2">
+    <div class="collection-info">
+        <a class="explore-btn" routerLink="/products">Explore</a>
+      </div>
+    </div>
+    <div class="collection-card">
+      <img src="assets/images/collection3.jpg" alt="Featured Collection 3">
+      <div class="collection-info">
+        <a class="explore-btn" routerLink="/products">Explore</a>
+    </div>
+  </div>
+  <div class="collection-card">
+      <img src="assets/images/collection4.jpg" alt="Featured Collection 4">
+    <div class="collection-info">
+        <a class="explore-btn" routerLink="/products">Explore</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- New Arrivals Section -->
+<section class="new-arrivals container">
+  <h2 class="section-title">New Arrivals</h2>
+  <div class="product-grid">
+    <app-product-card *ngFor="let product of featuredProducts" [product]="product"></app-product-card>
+  </div>
+</section>
+
+<!-- Brand Story Section -->
+<section class="brand-story">
+  <div class="container">
+    <h2>#IzzaCollection</h2>
+    <p>We believe in the power of simplicity. Our pieces are designed to be timeless, versatile, and an essential part of your wardrobe for years to come.</p>
+  </div>
+</section>

@@ -1,0 +1,131 @@
+.product-detail {
+  display: flex;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.product-image-section {
+  flex: 1;
+}
+
+.product-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.product-info-section {
+  flex: 1;
+  padding: 1rem 0;
+}
+
+.product-info-section h1 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2e7d32;
+  margin-bottom: 1rem;
+}
+
+.category {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.stock-status {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.stock-status.in-stock {
+  background: #d4edda;
+  color: #155724;
+}
+
+.stock-status.out-of-stock {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.size-selection,
+.quantity-selection {
+  margin-bottom: 1.5rem;
+}
+
+.size-selection label,
+.quantity-selection label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.size-selection select,
+.quantity-selection input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  min-width: 100px;
+}
+
+.add-to-order-btn {
+  background-color: var(--gold-color);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1.5rem;
+  display: inline-block;
+
+  &:hover {
+    background-color: #a98d5b;
+  }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+.product-not-found {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.product-not-found h2 {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .product-detail {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .product-image {
+    max-width: 100%;
+  }
+}
